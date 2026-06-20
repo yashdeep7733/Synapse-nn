@@ -11,3 +11,20 @@ class Dense:
     def forward(self, input_matrix):
         output = input_matrix.dot(self.weights) + self.bias
         return output
+    
+if __name__ == "__main__":
+    layer1 = Dense(3, 4)
+    layer2 = Dense(4, 2)
+
+    x = Matrix([[1, 2, 3]])
+
+    print(x.shape)
+
+    out = layer1.forward(x)
+    print(out.shape)
+
+    out = out.relu()
+    print(out.shape)
+
+    out = layer2.forward(out)
+    print(out.shape)
