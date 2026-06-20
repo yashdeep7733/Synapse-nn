@@ -173,4 +173,3 @@ if __name__ == "__main__":
     M = A.sigmoid()
     print(M)
     N = A.tanh()
-    print(N)
