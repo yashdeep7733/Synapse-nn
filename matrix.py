@@ -20,6 +20,8 @@ class Matrix:
         return '\n'.join(rows_as_strings) # Making it look like a matrix by joining rows with newlines
     
     def __add__(self, other):
+        if not isinstance(other, Matrix):
+            raise TypeError("Can only add another Matrix.")
         if self.rows != other.rows or self.columns != other.columns:
             raise ValueError("Matrices must have the same dimensions for addition.")
         
@@ -32,6 +34,8 @@ class Matrix:
         return Matrix(result_data)
     
     def __sub__(self, other):
+        if not isinstance(other, Matrix):
+            raise TypeError("Can only subtract another Matrix.")
         if self.rows != other.rows or self.columns != other.columns:
             raise ValueError("Matrices must have the same dimensions for subtraction.")
         
@@ -66,6 +70,52 @@ class Matrix:
                 current_row.append(self.data[j][i])
             result_data.append(current_row)
         return Matrix(result_data)
+    
+    def dot(self, other):
+        if self.columns != other.rows:
+            raise ValueError("Number of columns in the first matrix must equal the number of rows in the second matrix for dot product.")
+        
+        result_data = []
+        for i in range(self.rows):
+            current_row = []
+            for j in range(other.columns):
+                sum_product = 0
+                for k in range(self.columns):
+                    sum_product += self.data[i][k] * other.data[k][j]
+                current_row.append(sum_product)
+            result_data.append(current_row)
+        return Matrix(result_data)
+    
+    @property
+    def shape(self):
+        return (self.rows, self.columns)
+    
+    @staticmethod
+    def random(rows, columns, min_value=0, max_value=1):
+        import random
+        result_data = []
+        for i in range(rows):
+            current_row = []
+            for j in range(columns):
+                current_row.append(random.uniform(min_value, max_value))
+            result_data.append(current_row)
+        return Matrix(result_data)
+    
+    @staticmethod
+    def zeros(rows, columns):
+        result_data = []
+        for i in range(rows):
+            current_row = [0] * columns
+            result_data.append(current_row)
+        return Matrix(result_data)
+    
+    @staticmethod
+    def ones(rows, columns):
+        result_data = []
+        for i in range(rows):
+            current_row = [1] * columns
+            result_data.append(current_row)
+        return Matrix(result_data)
 
 if __name__ == "__main__":
     # Example usage
@@ -90,3 +140,5 @@ if __name__ == "__main__":
     print(F)
     G = A.transpose()
     print(G)
+    H = A.dot(B)
+    print(H)
