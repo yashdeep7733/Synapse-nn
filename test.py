@@ -1,7 +1,9 @@
-from synapse import Matrix
+from synapse import Matrix, Dense
 
-m = Matrix([[1, 2], [3, 4]])
+x = Matrix([[1, 2]])
 
-print(m)
-print(type(m))
-print(Matrix([[1, 2], [3, 4]]))
+layer = Dense(2, 4)
+
+output = layer.forward(x).relu()
+
+print(output)
