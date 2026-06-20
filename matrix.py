@@ -57,6 +57,15 @@ class Matrix:
     
     def __rmul__(self, other):
         return self.__mul__(other)
+    
+    def transpose(self):
+        result_data = []
+        for j in range(self.columns):
+            current_row = []
+            for i in range(self.rows):
+                current_row.append(self.data[i][j])
+            result_data.append(current_row)
+        return Matrix(result_data)
 
 if __name__ == "__main__":
     # Example usage
