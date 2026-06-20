@@ -60,10 +60,10 @@ class Matrix:
     
     def transpose(self):
         result_data = []
-        for j in range(self.columns):
+        for i in range(self.columns):
             current_row = []
-            for i in range(self.rows):
-                current_row.append(self.data[i][j])
+            for j in range(self.rows):
+                current_row.append(self.data[j][i])
             result_data.append(current_row)
         return Matrix(result_data)
 
@@ -84,3 +84,9 @@ if __name__ == "__main__":
     
     print(C)
     print(D)
+    E = A * 2
+    print(E)
+    F = 3 * A
+    print(F)
+    G = A.transpose()
+    print(G)
