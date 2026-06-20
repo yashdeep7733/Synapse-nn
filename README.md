@@ -65,3 +65,7 @@ synapse/
 ├── optimizers.py
 └── examples/
 ```
+
+## License
+
+MIT License
