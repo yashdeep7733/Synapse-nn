@@ -1,4 +1,4 @@
-from activations import Activations
+from .activations import Activations
 import random
 class Matrix:
     def __init__(self, data):

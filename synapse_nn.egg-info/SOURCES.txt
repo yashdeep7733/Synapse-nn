@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+synapse/__init__.py
+synapse/activations.py
+synapse/layers.py
+synapse/losses.py
+synapse/matrix.py
+synapse_nn.egg-info/PKG-INFO
+synapse_nn.egg-info/SOURCES.txt
+synapse_nn.egg-info/dependency_links.txt
+synapse_nn.egg-info/top_level.txt

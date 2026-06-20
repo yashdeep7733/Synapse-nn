@@ -1,4 +1,4 @@
-from matrix import Matrix
+from .matrix import Matrix
 import random
 class Dense:
     def __init__(self, input_size, output_size):
