@@ -42,6 +42,30 @@ class Matrix:
                 current_row.append(self.data[i][j] - other.data[i][j])
             result_data.append(current_row)
         return Matrix(result_data)
+    
+    def __mul__(self, other):
+        if not isinstance(other, (int, float)):
+            raise TypeError("Can only multiply a matrix by a number.")
+        
+        result_data = []
+        for i in range(self.rows):
+            current_row = []
+            for j in range(self.columns):
+                current_row.append(self.data[i][j] * other)
+            result_data.append(current_row)
+        return Matrix(result_data)
+    
+    def __rmul__(self, other):
+        if not isinstance(other, (int, float)):
+            raise TypeError("Can only multiply a matrix by a number.")
+        
+        result_data = []
+        for i in range(self.rows):
+            current_row = []
+            for j in range(self.columns):
+                current_row.append(self.data[i][j] * other)
+            result_data.append(current_row)
+        return Matrix(result_data)
 
 if __name__ == "__main__":
     # Example usage
