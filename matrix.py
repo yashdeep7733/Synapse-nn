@@ -72,6 +72,8 @@ class Matrix:
         return Matrix(result_data)
     
     def dot(self, other):
+        if not isinstance(other, Matrix):
+            raise TypeError("Can only perform dot product with another Matrix.")
         if self.columns != other.rows:
             raise ValueError("Number of columns in the first matrix must equal the number of rows in the second matrix for dot product.")
         
