@@ -1,4 +1,3 @@
-
 class Matrix:
     def __init__(self, data):
         if data == []: # Checking if the matrix is empty
@@ -19,8 +18,45 @@ class Matrix:
     def __str__(self):
         rows_as_strings = [str(row) for row in self.data] # Converting each row to a string
         return '\n'.join(rows_as_strings) # Making it look like a matrix by joining rows with newlines
+    
+    def __add__(self, other):
+        if self.rows != other.rows or self.columns != other.columns:
+            raise ValueError("Matrices must have the same dimensions for addition.")
+        
+        result_data = []
+        for i in range(self.rows):
+            current_row = []
+            for j in range(self.columns):
+                current_row.append(self.data[i][j] + other.data[i][j])
+            result_data.append(current_row)
+        return Matrix(result_data)
+    
+    def __sub__(self, other):
+        if self.rows != other.rows or self.columns != other.columns:
+            raise ValueError("Matrices must have the same dimensions for subtraction.")
+        
+        result_data = []
+        for i in range(self.rows):
+            current_row = []
+            for j in range(self.columns):
+                current_row.append(self.data[i][j] - other.data[i][j])
+            result_data.append(current_row)
+        return Matrix(result_data)
 
 if __name__ == "__main__":
     # Example usage
-    matrix = Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
-    print(matrix)
+    A = Matrix([
+        [1,2],
+        [3,4]
+        ])
+
+    B = Matrix([
+        [5,6],
+        [7,8]
+        ])
+    
+    C = A + B
+    D = A - B
+    
+    print(C)
+    print(D)
