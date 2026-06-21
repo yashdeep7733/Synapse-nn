@@ -12,7 +12,7 @@ A pure Python neural network framework built from scratch, featuring a custom ma
 - No external deep learning frameworks
 
 ![PyPI](https://img.shields.io/pypi/v/synapse-nn)
-![Documentation](https://synapse-nn.netlify.app/)
+[Documentation](https://synapse-nn.netlify.app/)
 
 ## Installation
 
